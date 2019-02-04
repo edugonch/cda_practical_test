@@ -1,1 +1,1 @@
-web: gunicorn rfp_project:app
+web: gunicorn rfp_project.wsgi
