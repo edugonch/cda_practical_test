@@ -1,0 +1,5 @@
+WeasyPrint
+psycopg2-binary 
+django-bootstrap-datepicker-plus
+django-crispy-forms
+django

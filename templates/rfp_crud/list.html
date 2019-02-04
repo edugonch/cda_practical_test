@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block embedjs %}
+<script>
+  RFP_FORM.init();
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col"><a href="{% url 'rfp_crud:pdf_list' %}">Download</a></th>
+        <th scope="col">Deadline</th>
+        {% if user.is_authenticated %}
+        <th scope="col">Action</th>
+        {% endif %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for rfp in object_list %}
+        <tr>
+          <th scope="row">
+            <a href="{% url 'rfp_crud:show' rfp.id %}">{{rfp.name}}</a>
+          </th>
+          <td></td>
+          <td>{{rfp.due_date}}</td>
+          {% if user.is_authenticated %}
+          <td>
+            <form id="delete_rfp_form" action="{% url 'rfp_crud:delete' rfp.id %}" method="post">
+              {% csrf_token %}
+              <button class="btn btn-danger" type="submit" title="Delete" onClick="return RFP_FORM.form_confirmation(this);"><i class="fas fa-trash-alt"></i></button> 
+            </form>
+          </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% include "share/_confirmation_modal.html" %}
+{% endblock %}
