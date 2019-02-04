@@ -23,7 +23,7 @@ Add additional notes about how to deploy this on a live system
 * **Eduardo González** - *Initial work* - [edugonch](https://github.com/edugonch)
 
 ## Test
-User: test_user
-Password: TesTPassWord123
+* User: test_user
+* Password: TesTPassWord123
 
 https://cda-practical-test.herokuapp.com/

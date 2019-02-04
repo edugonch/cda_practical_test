@@ -29,7 +29,7 @@
           <td>{{rfp.due_date}}</td>
           {% if user.is_authenticated %}
           <td>
-            <form id="delete_rfp_form" action="{% url 'rfp_crud:delete' rfp.id %}" method="post">
+            <form action="{% url 'rfp_crud:delete' rfp.id %}" method="post">
               {% csrf_token %}
               <button class="btn btn-danger" type="submit" title="Delete" onClick="return RFP_FORM.form_confirmation(this);"><i class="fas fa-trash-alt"></i></button> 
             </form>
